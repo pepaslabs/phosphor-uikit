@@ -1,4 +1,4 @@
-# Xcode asset catalog generator for Swift/UIKit
+## Xcode asset catalog generator for Swift/UIKit using Phosphor icons
 
 If you haven't yet migrated to SwiftUI, you may prefer to stick with PNG's (rather than SVG's) for your Xcode [asset catalogs](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs).
 
