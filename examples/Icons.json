@@ -1,7 +1,7 @@
 [
     "icons for the tab bar",
     [
-        "house", "book", "play", "search", "user",
+        "house", "book", "play", "magnifying-glass", "user",
         25, "regular", "fill"
     ],
 

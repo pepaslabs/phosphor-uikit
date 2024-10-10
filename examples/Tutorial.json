@@ -45,7 +45,7 @@
 
     "tab bar icons",
     [
-        "house", "book", "play", "search", "user",
+        "house", "book", "play", "magnifying-glass", "user",
         25, "regular", "fill"
     ],
 
@@ -63,5 +63,11 @@
     "Supported configuration options are:",
 
     "'renderer': options are 'rsvg', 'inkscape', default is 'rsvg'.",
-    {"renderer": "rsvg"}
+    {"renderer": "rsvg"},
+
+    "'phosphor_core_path': path to a local copy of the phosphor core repo.",
+    "Example: { \"phosphor_core_path\": \"~/github/phosphor/core\" }",
+    "To check out a copy, run 'git clone https://github.com/phosphor-icons/core'.",
+    "If this option is not supplied, individual svg files will be fetched from github.",
+    {"phosphor_core_path": "~/github/phosphor-icons/core"}
 ]
