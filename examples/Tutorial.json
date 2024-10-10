@@ -68,5 +68,9 @@
     "'phosphor_core_path': path to a local copy of the phosphor core repo.",
     "To check out a copy, run 'git clone https://github.com/phosphor-icons/core'.",
     "If this option is not supplied, individual svg files will be fetched from github.",
-    {"phosphor_core_path": "~/github/phosphor-icons/core"}
+    {"phosphor_core_path": "~/github/phosphor-icons/core"},
+
+    "phosphor-uikit.py will generate a Swift file with an enum of the icon cases.",
+    "You can specify the name of that enum type (and any param name of that type):",
+    {"enum_type_name": "Icon", "enum_param_name": "icon"}
 ]
