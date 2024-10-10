@@ -168,24 +168,26 @@ def make_xcasset_contents_json(catalog_dname):
 def update_asset_catalog(catalog_dname, icons_set):
     # Ensure the .xcassets directory exists.
     if not os.path.exists(catalog_dname):
-        os.mkdir(catalog_dname)
+        sys.stdout.write("⚙️  Creating 📁 %s\n" % catalog_dname)
+        if not flags["--dry-run"]:
+            os.mkdir(catalog_dname)
     # Ensure the top-level Contents.json exists.
     make_xcasset_contents_json(catalog_dname)
     # First, reconcile the .imageset directories.
     existing_imageset_dnames = set()
-    for dname in os.listdir(catalog_dname):
-        dpath = os.path.join(catalog_dname, dname)
-        if not os.path.isdir(dpath):
-            continue
-        if not dname.endswith(".imageset"):
-            continue
-        existing_imageset_dnames.add(dname)
+    if os.path.exists(catalog_dname):
+        for dname in os.listdir(catalog_dname):
+            dpath = os.path.join(catalog_dname, dname)
+            if dname.endswith(".imageset"):
+                existing_imageset_dnames.add(dname)
     expected_imageset_dnames = set()
     for (name, size, style) in icons_set:
         imageset_dname = "%s.%s.%s.imageset" % (name, size, style)
         expected_imageset_dnames.add(imageset_dname)
+    # Create the plan.
     imagesets_to_create = expected_imageset_dnames.difference(existing_imageset_dnames)
     imagesets_to_delete = existing_imageset_dnames.difference(expected_imageset_dnames)
+    # Do the work.
     for dname in imagesets_to_delete:
         dpath = os.path.join(catalog_dname, dname)
         sys.stdout.write("♻️  Deleting 📁 %s\n" % dpath)
@@ -196,10 +198,34 @@ def update_asset_catalog(catalog_dname, icons_set):
         sys.stdout.write("⚙️  Creating 📁 %s\n" % dpath)
         if not flags["--dry-run"]:
             os.mkdir(dpath)
-    # Now reconcile the png's within each imageset.
+    # Next, reconcile the png's within each imageset.
     for (name, size, style) in icons_set:
+        existing_png_fnames = set()
         imageset_dname = "%s.%s.%s.imageset" % (name, size, style)
-        png_fname = "%s.%s.%s.png" % (name, size, style)
+        dpath = os.path.join(catalog_dname, imageset_dname)
+        if os.path.exists(dpath):
+            for fname in os.listdir(dpath):
+                if fname.endswith(".png"):
+                    existing_png_fnames.add(fname)
+        expected_png_fnames = set()
+        fname1x = "%s.%s.%s.png" % (name, size, style)
+        fname2x = "%s.%s.%s@2x.png" % (name, size, style)
+        fname3x = "%s.%s.%s@3x.png" % (name, size, style)
+        expected_png_fnames.update([fname1x, fname2x, fname3x])
+        # Create the plan.
+        pngs_to_create = expected_png_fnames.difference(existing_png_fnames)
+        pngs_to_delete = existing_png_fnames.difference(expected_png_fnames)
+        # Do the work.
+        for fname in pngs_to_delete:
+            fpath = os.path.join(dpath, fname)
+            sys.stdout.write("♻️  Deleting 🏞️  %s\n" % fpath)
+            if not flags["--dry-run"]:
+                os.remove(fpath)
+        for fname in pngs_to_create:
+            fpath = os.path.join(dpath, fname)
+            sys.stdout.write("⚙️  Creating 🏞️  %s\n" % fpath)
+            if not flags["--dry-run"]:
+                os.open(fpath, "w+").close()
 
 
 # Load and process a JSON config file.
