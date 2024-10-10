@@ -12,7 +12,7 @@
     "$ ./phosphor-uikit.py Example1.json Example2.json",
     "will generate Example1.xcassets, Example1.swift, Example2.xcassets and Example2.swift.",
 
-    "An icon group is a list of icon names, a list of sizes, and a list of styles.",
+    "An icon group is a list of icon names, sizes, and a styles.",
     "Let's look at some examples:",
 
     "Three icons in styles 'regular' and 'bold' at 44pt",
