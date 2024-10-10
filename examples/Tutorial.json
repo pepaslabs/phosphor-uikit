@@ -1,0 +1,67 @@
+[
+    "TL;DR: take a look at Example2.json, come back here if you don't get it.",
+
+    "This is a phosphor-uikit.py JSON configuration file.",
+
+    "The format of a JSON config file a top-level array with:",
+    "* Strings (like this one), which are comments",
+    "* Arrays, which are groups of icons which share a common set of sizes and styles",
+    "* Objects, which are configuration options.",
+
+    "Call this script with the JSON files to generate asset catalogs, e.g.",
+    "$ ./phosphor-uikit.py Example1.json Example2.json",
+    "will generate Example1.xcassets, Example1.swift, Example2.xcassets and Example2.swift.",
+
+    "An icon group is a list of icon names, a list of sizes, and a list of styles.",
+    "Let's look at some examples:",
+
+    "Three icons in styles 'regular' and 'bold' at 44pt",
+    "(Retina and RetinaHD are implied, so this will render at 44, 88@2x and 132@3x",
+    "for a total of 18 PNG files):",
+    ["hand-pointing", "magnifying-glass", "star", 44, "regular", "bold"],
+
+    "Two icons in just the 'fill' style, at 25pt, 32pt, 44pt and 64pt",
+    "(this will render at 12 resolutions, creating 24 PNG files",
+    "25, 50@2x, 75@3x, 32, 64@2x, 96@3x, 44, 88@2x, 132@3x, 64, 128@2x, 192@3x)",
+    ["play-circle", "pause-circle", 25, 32, 44, 64, "fill"],
+
+    "Actually, you could use any arbitrary order, even though that's confusing.",
+    "Similarly, duplicates are tolerated.",
+    [64, 64, 25, "play-circle", 32, "fill", 44, "fill", "pause-circle", "play-circle"],
+    [64, 64, 25, "play-circle", 32, "fill", 44, "fill", "pause-circle", "play-circle"],
+
+    "An icon which uses decreasing thickness with increasing size:",
+    ["person", 32, "regular"],
+    ["person", 56, "light"],
+    ["person", 80, "thin"],
+
+    "If the styles are omitted, 'regular' is assumed:",
+    ["music-note", "music-notes", 32],
+
+    "If the size is omitted, a size of 44 is assumed:",
+    ["television"],
+
+    "A real-world example might look like this (see also Example2.json):",
+
+    "tab bar icons",
+    [
+        "house", "book", "play", "search", "user",
+        25, "regular", "fill"
+    ],
+
+    "player controls",
+    [
+        "skip-back", "rewind",
+        "play", "pause", "stop", "record",
+        "fast-forward", "skip-forward",
+        "shuffle", "repeat", "repeat-once",
+        44, 64, "fill"
+    ],
+
+    "Top-level objects (dictionaries) are configuration options.",
+    "Configuration objects are all optional, as they all have defaults.",
+    "Supported configuration options are:",
+
+    "'renderer': options are 'rsvg', 'inkscape', default is 'rsvg'.",
+    {"renderer": "rsvg"}
+]

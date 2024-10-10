@@ -1,0 +1,16 @@
+[
+    "icons for the tab bar",
+    [
+        "house", "book", "play", "search", "user",
+        25, "regular", "fill"
+    ],
+
+    "icons for the media player",
+    [
+        "skip-back", "rewind",
+        "play", "pause", "stop",
+        "fast-forward", "skip-forward",
+        "shuffle", "repeat", "repeat-once",
+        44, 64, "fill"
+    ]
+]
