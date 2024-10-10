@@ -66,7 +66,6 @@
     {"renderer": "rsvg"},
 
     "'phosphor_core_path': path to a local copy of the phosphor core repo.",
-    "Example: { \"phosphor_core_path\": \"~/github/phosphor/core\" }",
     "To check out a copy, run 'git clone https://github.com/phosphor-icons/core'.",
     "If this option is not supplied, individual svg files will be fetched from github.",
     {"phosphor_core_path": "~/github/phosphor-icons/core"}
