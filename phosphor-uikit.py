@@ -26,7 +26,7 @@ default_sizes = set([44])
 default_options = {
     "renderer": "rsvg"
 }
-valid_options = list(default_options.keys()) + ["phosphor_core_path", "enum_name", "param_name"]
+valid_options = list(default_options.keys()) + ["phosphor_core_path", "enum_type_name", "enum_param_name"]
 valid_renderers = ["rsvg", "inkscape"]
 
 did_warn_bad_phosphor_core_path = False
