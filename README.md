@@ -2,7 +2,7 @@
 
 If you haven't yet migrated to SwiftUI, you may prefer to stick with PNG's (rather than SVG's) for your Xcode [asset catalogs](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs).
 
-`phosphor-uikit.py` is a script which uses [Phosphor icons](https://phosphoricons.com/) to generates PNG-based asset catalogs for Xcode based on JSON configuration files.
+`phosphor-uikit.py` is a script which uses [Phosphor icons](https://phosphoricons.com/) to generate PNG-based asset catalogs for Xcode based on JSON configuration files.
 
 
 ## Demo
