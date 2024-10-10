@@ -3,7 +3,7 @@
 
     "This is a phosphor-uikit.py JSON configuration file.",
 
-    "The format of a JSON config file a top-level array with:",
+    "The format of a JSON config file is a top-level array with:",
     "* Strings (like this one), which are comments",
     "* Arrays, which are groups of icons which share a common set of sizes and styles",
     "* Objects, which are configuration options.",
