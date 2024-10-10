@@ -16,6 +16,14 @@ If you haven't yet migrated to SwiftUI, you may prefer to stick with PNG's (rath
 
 `phosphor-uikit.py` itself has no Python dependencies.  Simply download and call it.
 
+```
+$ brew install librsvg
+$ curl -fO https://raw.githubusercontent.com/pepaslabs/phosphor-uikit/refs/heads/main/phosphor-uikit.py
+$ chmod +x phosphor-uikit.py
+$ echo '[["house", 44, "fill"]]' > Icons.json
+$ ./phosphor-icons.py Icons.json
+```
+
 
 ## Usage
 
